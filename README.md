@@ -5,7 +5,7 @@ It maps all 8 semesters and 41 courses, and every course has topics, practice, a
 
 Made by **Luqman Khan**, student of **GCMS Commerce College Talash**.
 
-**Live demo:** https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/ (replace after you turn on GitHub Pages)
+**Live demo:** https://luqmankhan10.github.io/bscs-roadmap-hub/
 
 ## Features
 
