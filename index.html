@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BSCS Roadmap Hub | GCMS Commerce College Talash</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F5F9;--grid:#DCE5F0;--ink:#14213D;--muted:#55657D;--accent:#2450E0;--accent-ink:#FFFFFF;
+  --mark:#FFD84D;--mark-ink:#14213D;--ok:#17855A;--bad:#C2362F;--card:#FFFFFF;--line:#C5D2E3;--code:#0F1B2D;--code-ink:#E8EEF7;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1B2D;--grid:#18283F;--ink:#E8EEF7;--muted:#93A3BA;--accent:#7FA2FF;--accent-ink:#0F1B2D;
+    --ok:#4CD2A0;--bad:#FF8A82;--card:#15263D;--line:#2A3E5C;--code:#0A1322;--code-ink:#E8EEF7;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1B2D;--grid:#18283F;--ink:#E8EEF7;--muted:#93A3BA;--accent:#7FA2FF;--accent-ink:#0F1B2D;
+  --ok:#4CD2A0;--bad:#FF8A82;--card:#15263D;--line:#2A3E5C;--code:#0A1322;--code-ink:#E8EEF7;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px;color:var(--ink);font:400 16px/1.55 var(--body)}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);line-height:1.12;margin:0 0 .5rem;letter-spacing:-.01em}
+h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:800}
+h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700}
+h3{font-size:1.1rem;font-weight:700}
+p{margin:0 0 .8rem;max-width:70ch}
+button,input,select,textarea{font:inherit;color:inherit}
+.btn{display:inline-flex;align-items:center;gap:.4rem;border:1.5px solid var(--ink);background:var(--card);color:var(--ink);padding:.5rem .95rem;border-radius:8px;cursor:pointer;text-decoration:none;font-weight:600;font-size:.92rem;min-height:40px}
+.btn:hover{background:var(--mark);color:var(--mark-ink);border-color:var(--mark-ink)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.1);background:var(--accent);color:var(--accent-ink)}
+.btn.small{padding:.25rem .65rem;min-height:32px;font-size:.84rem}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:2px solid var(--ink);display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center;padding:.6rem clamp(.8rem,3vw,2rem)}
+.brand{font-family:var(--display);font-weight:800;font-size:1.2rem;text-decoration:none;color:var(--ink);background:linear-gradient(transparent 62%,var(--mark) 62%);padding:0 .2rem}
+nav{display:flex;flex-wrap:wrap;gap:.25rem}
+nav a{text-decoration:none;color:var(--ink);padding:.35rem .75rem;border-radius:8px;font-weight:600;font-size:.93rem}
+nav a:hover{background:var(--grid)}
+nav a[aria-current="page"]{background:var(--ink);color:var(--card)}
+.tools{margin-left:auto;display:flex;gap:.5rem;align-items:center}
+.tools input[type=search]{border:1.5px solid var(--line);background:var(--paper);border-radius:8px;padding:.45rem .7rem;width:min(240px,48vw)}
+main{max-width:1180px;margin:0 auto;padding:1.6rem clamp(.8rem,3vw,2rem) 4rem}
+footer{max-width:1180px;margin:0 auto;padding:0 clamp(.8rem,3vw,2rem) 2.5rem;color:var(--muted);font-size:.88rem}
+.panel{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:1.1rem 1.2rem}
+.overall{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;margin:1rem 0 2rem}
+.bar{height:10px;background:var(--grid);border-radius:99px;overflow:hidden;flex:1;min-width:140px;border:1px solid var(--line)}
+.bar i{display:block;height:100%;background:var(--ok);border-radius:99px}
+.bar.big{height:16px;max-width:420px}
+.year{margin-bottom:2rem}
+.year>h2{display:inline-block;background:var(--ink);color:var(--card);padding:.15rem .7rem;border-radius:6px;font-size:1.05rem;margin-bottom:.8rem}
+.sems{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:1rem}
+.sem{background:var(--card);border:1.5px solid var(--ink);border-radius:12px;padding:.9rem}
+.sem header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.6rem;gap:.5rem}
+.sem header span{font-size:.85rem;color:var(--muted)}
+.tile{display:grid;gap:.15rem;text-decoration:none;color:var(--ink);border:1.5px solid var(--line);border-radius:9px;padding:.6rem .75rem;margin-bottom:.5rem;background:var(--paper)}
+.tile:hover{border-color:var(--ink);background:var(--mark);color:var(--mark-ink)}
+.tile .code{font:600 .78rem var(--mono);color:var(--muted)}
+.tile:hover .code{color:var(--mark-ink)}
+.tile b{font-weight:600}
+.tile .row{display:flex;justify-content:space-between;gap:.5rem;font-size:.82rem;color:var(--muted)}
+.tile:hover .row{color:var(--mark-ink)}
+.crumbs{margin-bottom:1rem;font-size:.92rem}
+.chead{display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:baseline;margin-bottom:.4rem}
+.chip{display:inline-block;border:1.5px solid var(--line);border-radius:99px;padding:.05rem .65rem;font-size:.82rem;color:var(--muted);background:var(--card)}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.2rem 0 1rem;border-bottom:2px solid var(--ink);padding-bottom:.6rem}
+.tabs a{text-decoration:none;color:var(--ink);padding:.4rem .9rem;border-radius:8px;border:1.5px solid var(--line);background:var(--card);font-weight:600;font-size:.93rem}
+.tabs a[aria-current="page"]{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.res{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+.topics{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.topics li{display:flex;align-items:center;gap:.7rem;background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:.55rem .8rem}
+.topics li.done{border-color:var(--ok)}
+.topics li.done .tname{text-decoration:line-through;color:var(--muted)}
+.topics .tname{flex:1}
+.check{width:26px;height:26px;border:2px solid var(--ink);border-radius:6px;background:var(--card);cursor:pointer;display:grid;place-items:center;color:var(--card);font-weight:800;flex:none;padding:0}
+.done .check{background:var(--ok);border-color:var(--ok)}
+textarea.editor{width:100%;min-height:260px;background:var(--code);color:var(--code-ink);border:2px solid var(--ink);border-radius:10px;padding:.9rem;font:.9rem/1.5 var(--mono);resize:vertical;tab-size:2}
+pre.out{background:var(--code);color:var(--code-ink);border:2px solid var(--ink);border-radius:10px;padding:.9rem;margin:.6rem 0 0;font:.9rem/1.5 var(--mono);min-height:90px;white-space:pre-wrap;overflow-x:auto}
+.actions{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0}
+.q{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:.9rem 1rem;margin-bottom:.8rem}
+.q p{font-weight:600;margin-bottom:.5rem}
+.opts{display:grid;gap:.4rem}
+.opt{text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:8px;padding:.5rem .8rem;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--ink);background:var(--mark);color:var(--mark-ink)}
+.opt.ok{border-color:var(--ok);background:var(--ok);color:#fff}
+.opt.bad{border-color:var(--bad);background:var(--bad);color:#fff}
+.score{font-family:var(--display);font-weight:700;font-size:1.2rem;margin:.6rem 0}
+.steps{list-style:none;padding:0;margin:.8rem 0;display:grid;gap:.5rem}
+.steps li{display:flex;gap:.7rem;align-items:center;background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:.55rem .8rem}
+.steps li.done{border-color:var(--ok)}
+.pager{display:flex;justify-content:space-between;gap:.5rem;margin-top:2rem;flex-wrap:wrap}
+.labs{display:grid;gap:1.2rem}
+.bars{display:flex;align-items:flex-end;gap:2px;height:240px;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:8px}
+.bars i{flex:1;background:var(--accent);border-radius:3px 3px 0 0;min-width:2px}
+.bars i.c{background:var(--mark)}
+.bars i.s{background:var(--bad)}
+.bars i.d{background:var(--ok)}
+.ctrl{display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center;margin:.7rem 0}
+.ctrl label{display:flex;gap:.4rem;align-items:center;font-size:.9rem}
+.ctrl select,.ctrl input[type=text],.ctrl input[type=number]{border:1.5px solid var(--line);background:var(--paper);border-radius:8px;padding:.4rem .6rem}
+.sq{display:flex;gap:2rem;flex-wrap:wrap}
+.stack{display:flex;flex-direction:column-reverse;gap:4px;min-height:60px;width:110px}
+.queue{display:flex;gap:4px;min-height:44px;flex-wrap:wrap}
+.box{background:var(--accent);color:var(--accent-ink);border-radius:6px;padding:.3rem .6rem;text-align:center;font:600 .9rem var(--mono)}
+.cells{display:flex;gap:4px;flex-wrap:wrap;margin:.6rem 0}
+.cell{min-width:44px;text-align:center;padding:.4rem .5rem;border:1.5px solid var(--line);border-radius:6px;font:600 .9rem var(--mono);background:var(--paper);color:var(--muted)}
+.cell.in{color:var(--ink);border-color:var(--ink)}
+.cell.mid{background:var(--mark);color:var(--mark-ink);border-color:var(--mark-ink)}
+.cell.hit{background:var(--ok);color:#fff;border-color:var(--ok)}
+.flash{min-height:200px;display:grid;place-content:center;text-align:center;cursor:pointer;padding:1.5rem;border:2px solid var(--ink);border-radius:14px;background:var(--card);width:100%}
+.flash.ans{background:var(--mark);color:var(--mark-ink)}
+.flash small{color:var(--muted)}
+.flash.ans small{color:var(--mark-ink)}
+.flash h3{font-size:1.35rem;max-width:42ch;margin:.4rem auto}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0 1rem}
+.chips button{border:1.5px solid var(--ink);background:var(--card);border-radius:99px;padding:.3rem .9rem;cursor:pointer;font-weight:600}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--card)}
+.ideas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1rem;margin-top:1rem}
+.idea{background:var(--card);border:1.5px solid var(--ink);border-radius:12px;padding:1rem}
+.idea .stack-line{font:500 .85rem var(--mono);color:var(--muted)}
+.empty{padding:2rem;text-align:center;color:var(--muted)}
+@media (prefers-reduced-motion: no-preference){.bar i{transition:width .4s}}
+
+.brandbox{display:grid;line-height:1.15}
+.brandbox small{color:var(--muted);font-size:.74rem;font-weight:600}
+.brand{justify-self:start}
+.byline{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem;align-items:baseline;margin-bottom:1.2rem;padding:.65rem 1rem;background:var(--card);border:1.5px solid var(--ink);border-left:10px solid var(--mark);border-radius:10px}
+.byline .coll{font-family:var(--display);font-weight:800;font-size:1.2rem}
+.byline span:last-child{color:var(--muted)}
+.btn,.tile,nav a,.tabs a,.opt,.check,.chips button,.cell,.flash,.tools input[type=search]{transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease,box-shadow .18s ease}
+.bar i{transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.bars i{transition:height .14s ease,background-color .14s ease}
+.tile:active,.btn:active,.opt:active:not(:disabled){transform:scale(.98)}
+.topics li,.steps li{transition:border-color .2s ease,background-color .2s ease}
+@media (prefers-reduced-motion: no-preference){
+  html{scroll-behavior:smooth}
+  .tile:hover{transform:translateY(-2px);box-shadow:0 4px 0 var(--ink)}
+  .btn:hover{transform:translateY(-1px)}
+  .view-in{animation:view-in .3s ease-out}
+  @keyframes view-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .check.pop{animation:pop .28s ease-out}
+  @keyframes pop{0%{transform:scale(.7)}60%{transform:scale(1.18)}100%{transform:scale(1)}}
+  .opt.ok,.opt.bad{animation:pop .3s ease-out}
+}
+@media (max-width:640px){header.top{gap:.4rem}.tools{margin-left:0;width:100%}.tools input[type=search]{flex:1;width:auto}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brandbox"><a class="brand" href="#/">BSCS Roadmap Hub</a><small>GCMS Commerce College Talash</small></div>
+  <nav aria-label="Main">
+    <a href="#/" data-nav="">Roadmap</a>
+    <a href="#/labs" data-nav="labs">Visual labs</a>
+    <a href="#/interview" data-nav="interview">Interview prep</a>
+    <a href="#/fyp" data-nav="fyp">FYP ideas</a>
+  </nav>
+  <div class="tools">
+    <input type="search" id="search" placeholder="Search courses or topics" aria-label="Search courses or topics">
+    <button class="btn small" id="theme" type="button" aria-label="Switch light or dark theme">Theme</button>
+  </div>
+</header>
+<main id="app"></main>
+<footer><p><b>Made by Luqman Khan, student of GCMS Commerce College Talash.</b></p>The course list follows a typical 8-semester BSCS plan. Course names and order differ between universities, so use it as a map and match it to your own scheme of studies. Progress is saved in this browser only.</footer>
+
+<script>
+"use strict";
+/* ---------- helpers & state ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let P = {t:{}, s:{}, q:{}};
+try { const raw = JSON.parse(localStorage.getItem('bscs-hub') || 'null'); if (raw) P = Object.assign(P, raw); } catch (e) {}
+P.t = P.t || {}; P.s = P.s || {}; P.q = P.q || {};
+function save(){ try { localStorage.setItem('bscs-hub', JSON.stringify(P)); } catch (e) {} }
+const yt = q => 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+const gg = q => 'https://www.google.com/search?q=' + encodeURIComponent(q);
+
+/* ---------- course data ---------- */
+const COURSES = [];
+function K(s,c,n,cr,t,p,q){ COURSES.push({s,c,n,cr,t,p,q}); }
+
+K(1,"CS-101","Programming Fundamentals","3+1",["Variables and data types","Operators and expressions","Conditions: if and switch","Loops: for, while, do-while","Functions","Arrays and strings","Pointers and memory basics"],
+ ["Student Grade Calculator","Read marks for 5 subjects, then print the total, percentage and grade as a result card."],
+ [["Which loop always runs its body at least once?",["for","while","do-while","foreach"],2],["In C and C++, the first array index is:",["0","1","-1","It depends on the array"],0],["Which operator gives the remainder of a division?",["/","%","*","//"],1]]);
+K(1,"MT-101","Calculus and Analytical Geometry","3",["Limits and continuity","Derivatives","Applications of derivatives","Integration","Techniques of integration","Vectors and conic sections"],
+ ["Function Plotter","Take a function from the user, then print a table of values with its numeric derivative and area under the curve."],
+ [["The derivative of x² is:",["x","2x","x²/2","2"],1],["The integral of 2x dx is:",["x² + C","2x² + C","x + C","2 + C"],0]]);
+K(1,"CS-102","Introduction to ICT","3",["Computer hardware","System and application software","Number systems","Networks and the internet","Office productivity tools","Cyber hygiene and safe computing"],
+ ["Number System Converter","Build a tool that converts between decimal, binary, octal and hexadecimal."],
+ [["The decimal number 10 in binary is:",["1010","1001","1100","1110"],0],["Which part of a computer executes instructions?",["RAM","CPU","Hard disk","Monitor"],1]]);
+K(1,"SS-101","Functional English","3",["Grammar essentials","Reading comprehension","Paragraph writing","Presentation skills","Professional emails"],
+ ["Professional CV and Email Pack","Write your CV and a job application email, then ask a friend to review them."],
+ [["Choose the correct sentence:",["She don't like tea","She doesn't like tea","She not like tea","She no likes tea"],1],["A formal email usually ends with:",["Slang","An emoji","Regards or Sincerely","Nothing at all"],2]]);
+K(1,"IS-101","Islamic Studies / Ethics","2",["Beliefs and basic teachings","Ethics and character","Rights and duties","Social system","Ethics at work"],
+ ["Code of Conduct Poster","Write a one-page code of conduct for a student tech society based on honesty, respect and responsibility."],
+ [["How many pillars of Islam are there?",["4","5","6","7"],1],["In which month do Muslims fast?",["Shawwal","Rajab","Ramadan","Muharram"],2]]);
+K(1,"PH-101","Applied Physics","3",["Units and measurement","Vectors","Electricity and circuits","Magnetism","Semiconductors basics","Waves and optics"],
+ ["Ohm's Law Calculator","Build a calculator that finds voltage, current or resistance and checks series and parallel resistor combinations."],
+ [["Ohm's law is:",["V = I / R","V = I × R","V = R / I","V = I + R"],1],["The SI unit of current is:",["Volt","Ohm","Ampere","Watt"],2]]);
+
+K(2,"CS-201","Object Oriented Programming","3+1",["Classes and objects","Constructors and destructors","Encapsulation","Inheritance","Polymorphism","Abstraction and interfaces","Exception handling","Templates and generics"],
+ ["Library Management System","Create classes for Book, Member and Library with borrow and return, using inheritance for different member types."],
+ [["Which OOP concept hides internal data?",["Inheritance","Encapsulation","Recursion","Compilation"],1],["Method overriding is an example of:",["Compile-time polymorphism","Runtime polymorphism","Encapsulation","Overloading"],1],["A constructor is called when:",["An object is created","An object is deleted","A program ends","A file closes"],0]]);
+K(2,"MT-102","Discrete Structures","3",["Logic and propositions","Sets","Relations and functions","Proof techniques and induction","Counting and combinatorics","Graphs and trees"],
+ ["Truth Table Generator","Build a program that prints truth tables and checks if two logical expressions are equivalent."],
+ [["How many subsets does a set with n elements have?",["n","2n","2ⁿ","n²"],2],["p → q is false only when:",["p true, q false","p false, q true","both false","both true"],0]]);
+K(2,"CS-202","Digital Logic Design","3+1",["Number systems and codes","Boolean algebra","Karnaugh maps","Combinational circuits","Flip-flops","Counters and registers"],
+ ["4-bit Adder Simulator","Simulate half and full adders in code, then chain them into a 4-bit adder."],
+ [["XOR output for inputs 1 and 1 is:",["0","1","Undefined","2"],0],["Which gate is called universal?",["AND","OR","NAND","XOR"],2]]);
+K(2,"MT-103","Linear Algebra","3",["Systems of linear equations","Matrices and operations","Determinants","Vector spaces","Eigenvalues and eigenvectors","Linear transformations"],
+ ["Matrix Toolkit","Write functions for matrix addition, multiplication, transpose and determinant, then solve a 2×2 system."],
+ [["The determinant of the identity matrix is:",["0","1","-1","Depends on size"],1],["A 2×3 matrix times a 3×4 matrix gives size:",["2×4","3×3","4×2","Not possible"],0]]);
+K(2,"SS-102","Expository Writing","3",["Essay structure","Writing a thesis statement","Research and citations","Building an argument","Editing and proofreading"],
+ ["Technology Essay","Write a 700-word essay on how AI will change student life in Pakistan, with at least three cited sources."],
+ [["The main claim of an essay is called the:",["Thesis statement","Footnote","Conclusion","Title"],0],["Using someone's words without credit is:",["Paraphrasing","Citing","Plagiarism","Editing"],2]]);
+K(2,"SS-103","Pakistan Studies","2",["Ideology of Pakistan","Freedom movement","Constitutional development","Geography and resources","Foreign policy"],
+ ["Timeline Chart","Make a visual timeline of the major events from 1857 to 1973."],
+ [["Pakistan came into being in:",["1945","1947","1956","1971"],1],["Allama Iqbal's Allahabad address was delivered in:",["1930","1940","1947","1906"],0]]);
+
+K(3,"CS-301","Data Structures","3+1",["Arrays and linked lists","Stacks","Queues","Trees and binary search trees","Heaps and priority queues","Hashing","Graphs","Sorting and searching"],
+ ["Contact Book with a BST","Store contacts in a binary search tree with add, search, delete and sorted display."],
+ [["A stack follows which order?",["FIFO","LIFO","Random","Priority"],1],["Search in a balanced BST takes about:",["O(1)","O(log n)","O(n)","O(n²)"],1],["Which structure suits a task queue?",["Stack","Queue","Tree","Set"],1]]);
+K(3,"CS-302","Computer Organization and Assembly Language","3+1",["CPU architecture","Instruction cycle","Registers and addressing modes","Assembly language basics","Memory hierarchy and cache","I/O and interrupts"],
+ ["Mini CPU Simulator","Simulate a tiny CPU with registers, memory and four instructions (LOAD, ADD, STORE, JUMP)."],
+ [["The fetch-decode-execute sequence is called the:",["Instruction cycle","Boot cycle","Clock cycle only","Memory cycle"],0],["Which memory is fastest?",["Hard disk","RAM","Cache","SSD"],2]]);
+K(3,"MT-201","Probability and Statistics","3",["Descriptive statistics","Probability rules","Random variables","Binomial and Normal distributions","Hypothesis testing","Correlation and regression"],
+ ["Exam Marks Analyzer","Load a list of marks, then compute mean, median, standard deviation and draw a histogram."],
+ [["The mean of 2, 4 and 6 is:",["3","4","5","6"],1],["Probability of heads on a fair coin:",["0.25","0.5","0.75","1"],1]]);
+K(3,"CS-303","Database Systems","3+1",["ER modeling","Relational model","SQL queries","Normalization","Transactions and ACID","Indexing"],
+ ["University Database","Design an ER diagram and SQL tables for students, courses and enrollments, then write 10 useful queries."],
+ [["Which SQL command retrieves data?",["INSERT","SELECT","DELETE","ALTER"],1],["First normal form (1NF) requires:",["Atomic values in every cell","No primary key","Only one table","Only numbers"],0],["The 'A' in ACID stands for:",["Accuracy","Atomicity","Access","Aggregation"],1]]);
+K(3,"MT-202","Differential Equations","3",["First-order equations","Separable equations","Linear equations","Second-order equations","Laplace transforms"],
+ ["Population Growth Simulator","Simulate exponential growth numerically and compare with the exact solution."],
+ [["The order of dy/dx + y = 0 is:",["0","1","2","3"],1],["The solution of dy/dx = y is:",["y = Ceˣ","y = x + C","y = Cx","y = ln x"],0]]);
+
+K(4,"CS-401","Design and Analysis of Algorithms","3",["Asymptotic notation","Divide and conquer","Greedy algorithms","Dynamic programming","Graph algorithms","NP-completeness"],
+ ["Algorithm Race","Implement three sorting algorithms, time them on random data, and chart the results."],
+ [["Merge sort worst-case time is:",["O(n)","O(n log n)","O(n²)","O(log n)"],1],["Binary search runs in:",["O(log n)","O(n)","O(n²)","O(1)"],0],["Which technique stores sub-results to avoid recomputation?",["Greedy","Dynamic programming","Brute force","Backtracking"],1]]);
+K(4,"CS-402","Operating Systems","3+1",["Processes and threads","CPU scheduling","Synchronization","Deadlocks","Memory management","File systems"],
+ ["Scheduler Simulator","Simulate FCFS, SJF and Round Robin scheduling and compare average waiting times."],
+ [["Which is one of the four deadlock conditions?",["Mutual exclusion","Fast CPU","Large RAM","Many threads"],0],["FCFS scheduling means:",["First come, first served","Fastest CPU first","Final call first","Fair CPU sharing"],0]]);
+K(4,"CS-403","Software Engineering","3",["SDLC models","Requirements engineering","UML design","Software testing","Agile and Scrum","Version control with Git"],
+ ["Full SRS and Design Pack","Write a Software Requirements Specification with use case and class diagrams for a small app."],
+ [["A short fixed iteration in Scrum is called a:",["Sprint","Release","Module","Patch"],0],["A use case diagram shows:",["Database tables","User interactions with the system","Memory usage","Network cables"],1]]);
+K(4,"CS-404","Computer Networks","3+1",["OSI and TCP/IP models","IP addressing and subnetting","Routing","TCP and UDP","DNS and HTTP","Network security basics"],
+ ["Subnet Calculator","Given an IP and prefix, show network address, broadcast address and number of usable hosts."],
+ [["The default HTTP port is:",["21","25","80","443"],2],["Routing happens at which OSI layer?",["Network","Physical","Session","Application"],0]]);
+K(4,"SS-202","Technical and Business Writing","3",["Technical reports","Business letters","Proposals","Meeting minutes","Documentation"],
+ ["Project Proposal","Write a two-page proposal for a software project with scope, budget and timeline."],
+ [["A short summary at the start of a report is the:",["Executive summary","Appendix","Index","Footer"],0],["Meeting minutes record:",["Decisions and action items","Only the date","Jokes","Slides"],0]]);
+
+K(5,"CS-501","Theory of Automata and Formal Languages","3",["DFA and NFA","Regular expressions","Context-free grammars","Pushdown automata","Turing machines","Decidability"],
+ ["Regex Tester","Build a tool that checks strings against a DFA you define and shows each state transition."],
+ [["The regex a* matches:",["Zero or more a's","Exactly one a","Only the empty string","One or more b's"],0],["Which machine recognizes context-free languages?",["DFA","PDA","Finite counter","None"],1]]);
+K(5,"CS-502","Web Engineering","3+1",["HTML and CSS","JavaScript","Frontend frameworks","Backend and REST APIs","Databases in web apps","Deployment"],
+ ["Student Portal","Build a full-stack site with login, course list and a dashboard, then deploy it online."],
+ [["HTTP status code for 'Not Found' is:",["200","301","404","500"],2],["CSS is used for:",["Styling pages","Database queries","Compiling code","Encryption"],0]]);
+K(5,"CS-503","Artificial Intelligence","3+1",["Search: BFS, DFS and A*","Knowledge representation","Constraint satisfaction","Game playing and minimax","Probabilistic reasoning","Introduction to learning"],
+ ["Tic-Tac-Toe AI","Build an unbeatable tic-tac-toe player using minimax with alpha-beta pruning."],
+ [["A* ranks nodes using:",["f(n) = g(n) + h(n)","f(n) = g(n) − h(n)","f(n) = h(n) only","Random order"],0],["Minimax is used in:",["Two-player games","Sorting","Compilers","Networking"],0]]);
+K(5,"CS-504","Information Security","3",["Cryptography","Authentication","Network and web security","Malware","Security policy and ethics"],
+ ["Password Strength Checker","Build a checker that scores passwords and explains how to improve them, without storing anything."],
+ [["AES is a:",["Symmetric cipher","Hash function","Network protocol","Compiler"],0],["SQL injection mainly targets:",["The database layer","The monitor","The router","The keyboard"],0]]);
+K(5,"CS-505","Human Computer Interaction","3",["Usability principles","User research","Prototyping","Heuristic evaluation","Accessibility"],
+ ["Redesign an App","Pick a poor-quality app, interview 5 users, and make a redesigned prototype."],
+ [["How many usability heuristics did Nielsen list?",["5","10","15","20"],1],["Accessible design helps:",["Users with different abilities","Only developers","Only designers","Nobody"],0]]);
+
+K(6,"CS-601","Compiler Construction","3+1",["Lexical analysis","Parsing","Semantic analysis","Intermediate code","Code optimization","Code generation"],
+ ["Calculator Compiler","Build a lexer and parser for arithmetic expressions that evaluates them."],
+ [["The first phase of a compiler is:",["Lexical analysis","Optimization","Linking","Code generation"],0],["A parser checks:",["Syntax","Hardware","Spelling","Memory"],0]]);
+K(6,"CS-602","Machine Learning","3+1",["Supervised and unsupervised learning","Regression","Classification","Decision trees and ensembles","Clustering","Model evaluation"],
+ ["House Price Predictor","Train a regression model on a housing dataset and report its error."],
+ [["Overfitting means the model:",["Memorizes training data and generalizes poorly","Is too simple","Has no data","Runs too fast"],0],["K-means is a(n):",["Unsupervised algorithm","Supervised classifier","Sorting method","Database"],0],["Accuracy is a metric for:",["Classification","Clustering only","Sorting","Hashing"],0]]);
+K(6,"CS-603","Parallel and Distributed Computing","3",["Parallel architectures","Threads and concurrency","MPI and OpenMP","Distributed systems","Consensus and fault tolerance","MapReduce"],
+ ["Parallel Word Counter","Count words in a large text file with several workers and measure the speedup."],
+ [["Amdahl's law says speedup is limited by:",["The serial part of a program","RAM size","Screen size","Network color"],0],["A distributed system has:",["Multiple machines cooperating","One CPU only","No network","One user"],0]]);
+K(6,"CS-604","Mobile Application Development","3+1",["UI layouts","Screens and navigation","State management","Local storage and APIs","Notifications","Publishing an app"],
+ ["Attendance Tracker App","Build an app to mark attendance, store it locally and show a monthly report."],
+ [["Flutter apps are written in:",["Dart","Swift only","Ruby","COBOL"],0],["State management controls:",["How UI data changes over time","Phone battery","Screen size","Wi-Fi speed"],0]]);
+K(6,"CS-605","Computer Graphics","3+1",["Pixels and rasterization","2D transformations","Clipping","3D projection","Lighting and shading","OpenGL basics"],
+ ["Solar System Animation","Animate planets orbiting a sun using rotation and scaling transformations."],
+ [["Bresenham's algorithm draws:",["Lines","Sound","Tables","Fonts"],0],["Translation, rotation and scaling are:",["Transformations","Compilers","Protocols","Databases"],0]]);
+K(6,"CS-606","Final Year Project I","3",["Idea selection and proposal","Literature review","Requirements (SRS)","System design","Prototype","Proposal defense"],
+ ["FYP Proposal Document","Prepare your proposal, SRS draft and a working prototype of the main feature."],
+ [["SRS stands for:",["Software Requirements Specification","System Run Summary","Simple Report Sheet","Server Resource Setup"],0],["A literature review studies:",["Existing work on your topic","Only your own code","Hardware prices","Office rules"],0]]);
+
+K(7,"CS-701","Data Science and Big Data","3+1",["Data cleaning","Exploratory analysis and visualization","Feature engineering","Pandas and NumPy","Big data tools: Hadoop and Spark","Data storytelling"],
+ ["Open Data Dashboard","Pick a public dataset, clean it, analyze it and present 5 insights with charts."],
+ [["Which Python library is used for dataframes?",["pandas","flask","pygame","tkinter"],0],["Cleaning data includes:",["Fixing missing and wrong values","Deleting all data","Buying hardware","Writing poems"],0]]);
+K(7,"CS-702","Deep Learning and NLP","3+1",["Neural networks","Backpropagation","CNNs","RNNs and Transformers","Text processing","LLMs and RAG"],
+ ["Document Q&A Bot","Build a retrieval-augmented chatbot that answers questions from your own PDF notes."],
+ [["Transformers rely on:",["Attention","Sorting","Subnetting","Paging"],0],["Backpropagation computes:",["Gradients","Passwords","IP addresses","Pixels"],0]]);
+K(7,"CS-703","Cloud Computing and DevOps","3",["IaaS, PaaS and SaaS","Virtualization and containers","Docker and Kubernetes","CI/CD pipelines","Cloud security"],
+ ["Deploy with CI/CD","Containerize one of your apps with Docker and set up automatic deployment on every commit."],
+ [["Docker packages apps into:",["Containers","Spreadsheets","Images of people","Floppy disks"],0],["CI/CD automates:",["Building, testing and deploying","Typing","Meetings","Printing"],0]]);
+K(7,"CS-704","Professional Practices","2",["Ethics in computing","Intellectual property","Privacy and data protection","Professional codes","Teamwork and careers"],
+ ["Ethics Case Study","Analyze a real data breach and write what the company should have done differently."],
+ [["Plagiarism is:",["Using others' work without credit","Citing sources","Writing code","Debugging"],0],["Good teamwork needs:",["Clear communication","Secrecy","Working alone","Skipping meetings"],0]]);
+K(7,"CS-705","Technical Elective I (Cybersecurity or Information Retrieval)","3",["Ethical hacking labs","Vulnerability assessment","Search and ranking: TF-IDF and PageRank","Building a mini search engine","Secure coding"],
+ ["Mini Search Engine","Index a set of text files and return ranked results for a query using TF-IDF."],
+ [["TF-IDF is used in:",["Information retrieval","Graphics","Assembly","Networking cables"],0],["A firewall:",["Filters network traffic","Cools the CPU","Compiles code","Stores files"],0]]);
+
+K(8,"CS-801","Final Year Project II","3",["Implementation","Testing and quality","Documentation","Demo preparation","Final defense and report","Deployment"],
+ ["Finish and Defend Your FYP","Complete the full system, write the final report and rehearse the defense with a mock panel."],
+ [["A demo should show:",["The main working features","Only slides","Only code","Nothing live"],0],["Final reports must include:",["Design, testing and results","Only a title","Random notes","Only screenshots of Word"],0]]);
+K(8,"CS-802","Technical Elective II (IoT, Blockchain, Game Dev or Computer Vision)","3",["Sensors and microcontrollers","Blockchain basics","Game loops and engines","Image processing and computer vision","Choose one and go deep"],
+ ["Elective Mini Build","Pick one area and build a small working demo, such as a sensor dashboard, a hash chain or a simple game."],
+ [["IoT stands for:",["Internet of Things","Input of Texts","Index of Tables","Interface of Tools"],0],["A blockchain stores data in:",["Linked blocks","One cell","A queue only","Images"],0]]);
+K(8,"CS-803","Entrepreneurship","2",["Finding a problem worth solving","Business model basics","MVP and customer feedback","Pitching","Startup funding and legal basics"],
+ ["Startup Pitch","Create a 5-minute pitch deck for a student startup and present it to classmates."],
+ [["MVP stands for:",["Minimum Viable Product","Maximum Value Plan","Main Visual Page","Master Version Package"],0],["Profit equals:",["Revenue minus costs","Costs minus revenue","Revenue plus costs","Only revenue"],0]]);
+
+/* ---------- starter code for the Practice tab (runs JavaScript in your browser) ---------- */
+const CODE = {};
+CODE["CS-101"]=`// Loops, conditions and functions
+function fizzBuzz(n){
+  for (let i = 1; i <= n; i++){
+    if (i % 15 === 0) console.log("FizzBuzz");
+    else if (i % 3 === 0) console.log("Fizz");
+    else if (i % 5 === 0) console.log("Buzz");
+    else console.log(i);
+  }
+}
+fizzBuzz(15);`;
+CODE["MT-101"]=`// Numerical derivative and integral
+const f = x => x * x;
+const h = 0.0001;
+const derivative = x => (f(x + h) - f(x - h)) / (2 * h);
+console.log("f'(3) is about", derivative(3).toFixed(3));   // expect 6
+
+function integrate(f, a, b, n = 1000){
+  const w = (b - a) / n; let sum = 0;
+  for (let i = 0; i < n; i++) sum += f(a + (i + 0.5) * w) * w;
+  return sum;
+}
+console.log("Integral of x^2 from 0 to 3:", integrate(f, 0, 3).toFixed(3)); // expect 9`;
+CODE["CS-102"]=`// Number system converter
+const n = 202;
+console.log("Decimal:", n);
+console.log("Binary:", n.toString(2));
+console.log("Octal:", n.toString(8));
+console.log("Hex:", n.toString(16).toUpperCase());
+console.log("Binary 11001010 to decimal:", parseInt("11001010", 2));`;
+CODE["CS-201"]=`// Inheritance and polymorphism
+class Shape {
+  area(){ return 0; }
+  describe(){ return this.constructor.name + " with area " + this.area().toFixed(2); }
+}
+class Circle extends Shape { constructor(r){ super(); this.r = r; } area(){ return Math.PI * this.r ** 2; } }
+class Rect extends Shape { constructor(w, h){ super(); this.w = w; this.h = h; } area(){ return this.w * this.h; } }
+[new Circle(3), new Rect(4, 5)].forEach(s => console.log(s.describe()));`;
+CODE["MT-102"]=`// Power set and implication truth table
+const set = [1, 2, 3];
+const powerSet = s => s.reduce((acc, x) => acc.concat(acc.map(sub => [...sub, x])), [[]]);
+console.log("Subsets:", powerSet(set).map(s => "{" + s.join(",") + "}").join(" "));
+console.log("Count = 2^n =", 2 ** set.length);
+console.log("p -> q");
+for (const p of [true, false]) for (const q of [true, false]) console.log(p, q, "=>", !p || q);`;
+CODE["CS-202"]=`// Half adder truth table
+const AND = (a, b) => a & b, XOR = (a, b) => a ^ b;
+console.log("A B | Sum Carry");
+for (const a of [0, 1]) for (const b of [0, 1]) console.log(a, b, "|", XOR(a, b), "  ", AND(a, b));`;
+CODE["MT-103"]=`// Matrix multiplication and determinant
+const A = [[1, 2], [3, 4]], B = [[5, 6], [7, 8]];
+const mul = (X, Y) => X.map(r => Y[0].map((_, j) => r.reduce((s, v, k) => s + v * Y[k][j], 0)));
+console.log("A x B =", JSON.stringify(mul(A, B)));
+const det = M => M[0][0] * M[1][1] - M[0][1] * M[1][0];
+console.log("det(A) =", det(A));`;
+CODE["CS-301"]=`// A linked list from scratch
+class Node { constructor(v){ this.value = v; this.next = null; } }
+class LinkedList {
+  constructor(){ this.head = null; this.size = 0; }
+  add(v){
+    const n = new Node(v);
+    if (!this.head) this.head = n;
+    else { let c = this.head; while (c.next) c = c.next; c.next = n; }
+    this.size++;
+  }
+  toArray(){ const out = []; let c = this.head; while (c){ out.push(c.value); c = c.next; } return out; }
+}
+const list = new LinkedList();
+[10, 20, 30].forEach(v => list.add(v));
+console.log(list.toArray().join(" -> "), "| size:", list.size);`;
+CODE["MT-201"]=`// Simulate 10,000 dice rolls
+const rolls = Array.from({length: 10000}, () => 1 + Math.floor(Math.random() * 6));
+const mean = rolls.reduce((a, b) => a + b, 0) / rolls.length;
+const sd = Math.sqrt(rolls.reduce((s, x) => s + (x - mean) ** 2, 0) / rolls.length);
+console.log("Mean:", mean.toFixed(3), "(theory 3.5)");
+console.log("Std deviation:", sd.toFixed(3), "(theory 1.708)");
+console.log("P(roll = 6):", (rolls.filter(x => x === 6).length / rolls.length).toFixed(3), "(theory 0.167)");`;
+CODE["CS-303"]=`// SQL ideas using a JavaScript array as a table
+const students = [
+  {id: 1, name: "Ali", dept: "CS", gpa: 3.4},
+  {id: 2, name: "Sara", dept: "SE", gpa: 3.8},
+  {id: 3, name: "Hamza", dept: "CS", gpa: 2.9},
+  {id: 4, name: "Ayesha", dept: "SE", gpa: 3.1}
+];
+// SELECT name FROM students WHERE gpa > 3 ORDER BY gpa DESC
+console.log(students.filter(s => s.gpa > 3).sort((a, b) => b.gpa - a.gpa).map(s => s.name));
+// SELECT dept, AVG(gpa) FROM students GROUP BY dept
+const groups = {};
+students.forEach(s => (groups[s.dept] = groups[s.dept] || []).push(s.gpa));
+for (const d in groups) console.log(d, (groups[d].reduce((a, b) => a + b) / groups[d].length).toFixed(2));`;
+CODE["CS-401"]=`// Binary search and dynamic programming
+function binarySearch(arr, t){
+  let lo = 0, hi = arr.length - 1, steps = 0;
+  while (lo <= hi){
+    steps++;
+    const mid = (lo + hi) >> 1;
+    if (arr[mid] === t) return {index: mid, steps};
+    if (arr[mid] < t) lo = mid + 1; else hi = mid - 1;
+  }
+  return {index: -1, steps};
+}
+console.log(binarySearch([2, 5, 8, 12, 16, 23, 38, 56, 72, 91], 23));
+const memo = {};
+const fib = n => n < 2 ? n : (memo[n] ??= fib(n - 1) + fib(n - 2));
+console.log("fib(50) =", fib(50));`;
+CODE["CS-402"]=`// Round Robin scheduling, quantum = 3
+const jobs = [{id: "P1", burst: 5}, {id: "P2", burst: 3}, {id: "P3", burst: 8}];
+const quantum = 3; let time = 0;
+const queue = jobs.map(j => ({...j, left: j.burst}));
+while (queue.length){
+  const p = queue.shift();
+  const run = Math.min(quantum, p.left);
+  time += run; p.left -= run;
+  console.log("t=" + time + ": " + p.id + " ran " + run + (p.left ? " (left " + p.left + ")" : " (done)"));
+  if (p.left) queue.push(p);
+}`;
+CODE["CS-404"]=`// Subnet calculator
+const ip = "192.168.10.77", prefix = 26;
+const toInt = s => s.split(".").reduce((a, o) => (a << 8) + (+o), 0) >>> 0;
+const toIp = n => [24, 16, 8, 0].map(s => (n >>> s) & 255).join(".");
+const mask = (0xFFFFFFFF << (32 - prefix)) >>> 0;
+const net = (toInt(ip) & mask) >>> 0;
+const bc = (net | (~mask >>> 0)) >>> 0;
+console.log("Network:", toIp(net));
+console.log("Broadcast:", toIp(bc));
+console.log("Usable hosts:", 2 ** (32 - prefix) - 2);`;
+CODE["CS-501"]=`// DFA that accepts binary strings ending in 01
+const delta = {q0: {0: "q1", 1: "q0"}, q1: {0: "q1", 1: "q2"}, q2: {0: "q1", 1: "q0"}};
+const accepts = s => [...s].reduce((q, c) => delta[q][c], "q0") === "q2";
+["01", "1101", "10", "0"].forEach(s => console.log(s, "->", accepts(s) ? "accepted" : "rejected"));`;
+CODE["CS-502"]=`// A tiny REST-style router
+const users = [{id: 1, name: "Ali"}, {id: 2, name: "Sara"}];
+function handle(method, path){
+  if (method === "GET" && path === "/users") return {status: 200, body: users};
+  const m = path.match(/^\\/users\\/(\\d+)$/);
+  if (method === "GET" && m){
+    const u = users.find(x => x.id == m[1]);
+    return u ? {status: 200, body: u} : {status: 404, body: "Not found"};
+  }
+  return {status: 404, body: "Not found"};
+}
+console.log(JSON.stringify(handle("GET", "/users/2")));
+console.log(JSON.stringify(handle("GET", "/users/9")));`;
+CODE["CS-503"]=`// Breadth-first search for the shortest path
+const graph = {A: ["B", "C"], B: ["D"], C: ["D", "E"], D: ["F"], E: ["F"], F: []};
+function bfs(start, goal){
+  const q = [[start]], seen = new Set([start]);
+  while (q.length){
+    const path = q.shift(), n = path[path.length - 1];
+    if (n === goal) return path;
+    for (const nb of graph[n]) if (!seen.has(nb)){ seen.add(nb); q.push([...path, nb]); }
+  }
+  return null;
+}
+console.log("Shortest path A to F:", bfs("A", "F").join(" -> "));`;
+CODE["CS-504"]=`// Caesar cipher
+const caesar = (text, k) => text.replace(/[a-z]/gi, ch => {
+  const base = ch <= "Z" ? 65 : 97;
+  return String.fromCharCode((ch.charCodeAt(0) - base + k + 26) % 26 + base);
+});
+const secret = caesar("Attack at dawn", 3);
+console.log(secret);
+console.log(caesar(secret, -3));`;
+CODE["CS-601"]=`// A tiny tokenizer (lexical analysis)
+function tokenize(src){
+  const re = /\\s*(\\d+\\.?\\d*|[A-Za-z_]\\w*|[+\\-*\\/()=])/g;
+  const out = []; let m;
+  while ((m = re.exec(src))){
+    const t = m[1];
+    out.push({type: /^\\d/.test(t) ? "NUMBER" : /^[A-Za-z_]/.test(t) ? "IDENT" : "OP", value: t});
+  }
+  return out;
+}
+tokenize("total = price * 3 + 4.5").forEach(t => console.log(t.type.padEnd(7), t.value));`;
+CODE["CS-602"]=`// Linear regression with gradient descent
+const xs = [1, 2, 3, 4, 5], ys = [3, 5, 7, 9, 11]; // y = 2x + 1
+let w = 0, b = 0; const lr = 0.01;
+for (let e = 0; e < 5000; e++){
+  let gw = 0, gb = 0;
+  xs.forEach((x, i) => { const err = (w * x + b) - ys[i]; gw += err * x; gb += err; });
+  w -= lr * gw * 2 / xs.length;
+  b -= lr * gb * 2 / xs.length;
+}
+console.log("w =", w.toFixed(3), "b =", b.toFixed(3));
+console.log("Prediction for x = 10:", (w * 10 + b).toFixed(2));`;
+function starter(c){
+  if (CODE[c.c]) return CODE[c.c];
+  return "// " + c.n + "\n// This is a free practice area. Write JavaScript and press Run.\nconst topics = " + JSON.stringify(c.t, null, 2) + ";\ntopics.forEach(function (t, i) { console.log((i + 1) + '. ' + t); });";
+}
+
+/* ---------- progress ---------- */
+const STEPS = ["Plan the features and write them down","Build the core version","Test it with real examples","Write a README and upload it to GitHub"];
+function prog(c){
+  let done = 0;
+  c.t.forEach((_, i) => { if (P.t[c.c + ':' + i]) done++; });
+  STEPS.forEach((_, i) => { if (P.s[c.c + ':' + i]) done++; });
+  if (P.q[c.c] === c.q.length) done++;
+  return {done, total: c.t.length + STEPS.length + 1};
+}
+const pctOf = p => Math.round(p.done / p.total * 100);
+
+/* ---------- views ---------- */
+const app = $('#app');
+let QS = {};
+
+function viewRoadmap(){
+  const term = $('#search').value.trim().toLowerCase();
+  let done = 0, total = 0;
+  COURSES.forEach(c => { const p = prog(c); done += p.done; total += p.total; });
+  const pct = Math.round(done / total * 100);
+  let html = '<div class="byline"><span class="coll">GCMS Commerce College Talash</span><span>Made by Luqman Khan, student of this college</span></div><h1>Your BSCS, semester by semester</h1>' +
+    '<p>Open any course for topics with video searches, a code playground, a quiz and a mini project. Tick things off and your map fills in.</p>' +
+    '<div class="overall"><div class="bar big" role="progressbar" aria-valuenow="' + pct + '" aria-valuemin="0" aria-valuemax="100"><i style="width:' + pct + '%"></i></div><span><b>' + pct + '%</b> of the degree complete across ' + COURSES.length + ' courses</span></div>';
+  let shown = 0;
+  for (let y = 1; y <= 4; y++){
+    let yearHtml = '';
+    for (let s = 2 * y - 1; s <= 2 * y; s++){
+      const list = COURSES.filter(c => c.s === s && (!term || (c.n + ' ' + c.c + ' ' + c.t.join(' ')).toLowerCase().includes(term)));
+      if (!list.length) continue;
+      shown += list.length;
+      const all = COURSES.filter(c => c.s === s);
+      let d = 0, t = 0; all.forEach(c => { const p = prog(c); d += p.done; t += p.total; });
+      yearHtml += '<section class="sem" aria-label="Semester ' + s + '"><header><h3>Semester ' + s + '</h3><span>' + Math.round(d / t * 100) + '% done</span></header>' +
+        list.map(c => { const p = prog(c); return '<a class="tile" href="#/course/' + c.c + '"><span class="code">' + c.c + '</span><b>' + esc(c.n) + '</b><span class="row"><span>' + c.cr + ' credit hours</span><span>' + pctOf(p) + '%</span></span><span class="bar"><i style="width:' + pctOf(p) + '%"></i></span></a>'; }).join('') + '</section>';
+    }
+    if (yearHtml) html += '<div class="year"><h2>Year ' + y + '</h2><div class="sems">' + yearHtml + '</div></div>';
+  }
+  if (!shown) html += '<div class="panel empty">No course matches "' + esc(term) + '". Try a topic such as sorting, SQL or networks.</div>';
+  app.innerHTML = html;
+}
+
+function viewCourse(code, tab){
+  const i = COURSES.findIndex(c => c.c === code);
+  if (i < 0){ app.innerHTML = '<div class="panel empty">Course not found. <a href="#/">Back to the roadmap</a></div>'; return; }
+  const c = COURSES[i], p = prog(c);
+  tab = ['topics','practice','quiz','project'].includes(tab) ? tab : 'topics';
+  const tabNames = {topics:'Topics and videos', practice:'Practice', quiz:'Quiz', project:'Mini project'};
+  let body = '';
+  if (tab === 'topics'){
+    body = '<p>In this course you will study ' + esc(c.t.slice(0, 4).join(', ').toLowerCase()) + ' and more. Watch a lesson for each topic, then tick it when you understand it.</p>' +
+      '<div class="res"><a class="btn primary" target="_blank" rel="noopener" href="' + yt(c.n + ' full course') + '">Find full course videos</a><a class="btn" target="_blank" rel="noopener" href="' + gg(c.n + ' lecture notes pdf') + '">Find lecture notes</a><a class="btn" target="_blank" rel="noopener" href="' + gg(c.n + ' practice problems with solutions') + '">Find practice problems</a></div>' +
+      '<ul class="topics">' + c.t.map((t, k) => { const on = P.t[c.c + ':' + k]; return '<li class="' + (on ? 'done' : '') + '"><button class="check" data-act="topic" data-k="' + k + '" aria-pressed="' + (on ? 'true' : 'false') + '" aria-label="Mark ' + esc(t) + ' as done">' + (on ? '&#10003;' : '') + '</button><span class="tname">' + esc(t) + '</span><a class="btn small" target="_blank" rel="noopener" href="' + yt(c.n + ' ' + t + ' tutorial') + '">Watch video</a></li>'; }).join('') + '</ul>';
+  } else if (tab === 'practice'){
+    body = '<p>Practice by running code right here. The playground runs JavaScript in your browser, so you can try the logic of this course without installing anything.</p>' +
+      '<textarea id="code" class="editor" spellcheck="false" aria-label="Code editor">' + esc(starter(c)) + '</textarea>' +
+      '<div class="actions"><button class="btn primary" data-act="run">Run code</button><button class="btn" data-act="reset">Reset example</button><button class="btn" data-act="clear">Clear output</button></div>' +
+      '<pre class="out" id="out" aria-live="polite">Output appears here.</pre>';
+  } else if (tab === 'quiz'){
+    const st = QS[c.c] || (QS[c.c] = {});
+    let right = 0, answered = 0;
+    body = '<p>Answer every question correctly to complete this quiz. You can retry as many times as you like.</p>' + c.q.map((q, qi) => {
+      const a = st[qi]; if (a !== undefined){ answered++; if (a === q[2]) right++; }
+      return '<div class="q"><p>' + esc(q[0]) + '</p><div class="opts">' + q[1].map((o, oi) => {
+        let cls = ''; if (a !== undefined){ if (oi === q[2]) cls = 'ok'; else if (oi === a) cls = 'bad'; }
+        return '<button class="opt ' + cls + '" data-act="ans" data-q="' + qi + '" data-o="' + oi + '"' + (a !== undefined ? ' disabled' : '') + '>' + esc(o) + '</button>';
+      }).join('') + '</div></div>';
+    }).join('');
+    if (answered === c.q.length){
+      if (right === c.q.length){ P.q[c.c] = c.q.length; save(); }
+      body += '<div class="score">Score: ' + right + ' of ' + c.q.length + (right === c.q.length ? '. Quiz complete.' : '. Review the green answers and try again.') + '</div><button class="btn primary" data-act="retry">Retry quiz</button>';
+    } else if (P.q[c.c] === c.q.length){
+      body += '<div class="score">You have already completed this quiz.</div>';
+    }
+  } else {
+    body = '<div class="panel"><h2>' + esc(c.p[0]) + '</h2><p>' + esc(c.p[1]) + '</p></div><h3 style="margin-top:1.2rem">Project steps</h3><ul class="steps">' +
+      STEPS.map((s, k) => { const on = P.s[c.c + ':' + k]; return '<li class="' + (on ? 'done' : '') + '"><button class="check" data-act="step" data-k="' + k + '" aria-pressed="' + (on ? 'true' : 'false') + '" aria-label="Mark step done: ' + esc(s) + '">' + (on ? '&#10003;' : '') + '</button><span>' + esc(s) + '</span></li>'; }).join('') +
+      '</ul><p>Upload the finished project to GitHub and add it to your CV. Projects you can show are worth more than marks alone.</p>';
+  }
+  const prev = COURSES[i - 1], next = COURSES[i + 1];
+  app.innerHTML = '<div class="crumbs"><a href="#/">Roadmap</a> / Semester ' + c.s + '</div>' +
+    '<div class="chead"><h1>' + esc(c.n) + '</h1></div>' +
+    '<span class="chip">' + c.c + '</span> <span class="chip">' + c.cr + ' credit hours</span> <span class="chip" id="pchip">' + pctOf(p) + '% done</span>' +
+    '<nav class="tabs" aria-label="Course sections">' + Object.keys(tabNames).map(k => '<a href="#/course/' + c.c + '/' + k + '"' + (k === tab ? ' aria-current="page"' : '') + '>' + tabNames[k] + '</a>').join('') + '</nav>' +
+    body +
+    '<div class="pager">' + (prev ? '<a class="btn" href="#/course/' + prev.c + '">Previous: ' + esc(prev.n) + '</a>' : '<span></span>') + (next ? '<a class="btn" href="#/course/' + next.c + '">Next: ' + esc(next.n) + '</a>' : '') + '</div>';
+}
+
+/* ---------- visual labs ---------- */
+const ALGOS = {
+  bubble: {name:'Bubble sort', info:'Compares neighbors and swaps. Average and worst case O(n²).', gen: function*(a){ for (let i = 0; i < a.length; i++) for (let j = 0; j < a.length - i - 1; j++){ yield {[j]:'c',[j+1]:'c'}; if (a[j] > a[j+1]){ [a[j], a[j+1]] = [a[j+1], a[j]]; yield {[j]:'s',[j+1]:'s'}; } } }},
+  selection: {name:'Selection sort', info:'Finds the smallest item and moves it to the front. Always O(n²).', gen: function*(a){ for (let i = 0; i < a.length; i++){ let m = i; for (let j = i + 1; j < a.length; j++){ yield {[m]:'s',[j]:'c'}; if (a[j] < a[m]) m = j; } if (m !== i){ [a[i], a[m]] = [a[m], a[i]]; yield {[i]:'s',[m]:'s'}; } } }},
+  insertion: {name:'Insertion sort', info:'Builds a sorted part one item at a time. O(n²), fast on nearly sorted data.', gen: function*(a){ for (let i = 1; i < a.length; i++){ let j = i; while (j > 0 && a[j-1] > a[j]){ yield {[j]:'c',[j-1]:'c'}; [a[j], a[j-1]] = [a[j-1], a[j]]; yield {[j]:'s',[j-1]:'s'}; j--; } } }},
+  quick: {name:'Quick sort', info:'Partitions around a pivot. Average O(n log n), worst case O(n²).', gen: function*(a, lo = 0, hi = a.length - 1){ if (lo >= hi) return; const pv = a[hi]; let i = lo; for (let j = lo; j < hi; j++){ yield {[j]:'c',[hi]:'s'}; if (a[j] < pv){ [a[i], a[j]] = [a[j], a[i]]; yield {[i]:'s',[j]:'s'}; i++; } } [a[i], a[hi]] = [a[hi], a[i]]; yield {[i]:'s',[hi]:'s'}; yield* ALGOS.quick.gen(a, lo, i - 1); yield* ALGOS.quick.gen(a, i + 1, hi); }},
+  merge: {name:'Merge sort', info:'Splits, sorts halves and merges them. Always O(n log n) with extra memory.', gen: function*(a, l = 0, r = a.length - 1){ if (l >= r) return; const m = (l + r) >> 1; yield* ALGOS.merge.gen(a, l, m); yield* ALGOS.merge.gen(a, m + 1, r); const L = a.slice(l, m + 1), R = a.slice(m + 1, r + 1); let i = 0, j = 0, k = l; while (i < L.length && j < R.length){ a[k] = L[i] <= R[j] ? L[i++] : R[j++]; yield {[k]:'s'}; k++; } while (i < L.length){ a[k++] = L[i++]; yield {[k-1]:'s'}; } while (j < R.length){ a[k++] = R[j++]; yield {[k-1]:'s'}; } }}
+};
+let SORT = {a: [], token: 0};
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+function drawBars(a, hi){
+  const b = $('#bars'); if (!b) return; hi = hi || {};
+  if (b.children.length !== a.length){ b.innerHTML = a.map(() => '<i></i>').join(''); }
+  for (let i = 0; i < a.length; i++){ const el = b.children[i]; el.style.height = a[i] + '%'; el.className = hi[i] || ''; }
+}
+function sortReset(){ SORT.token++; const n = +$('#sn').value; SORT.a = Array.from({length: n}, () => 10 + Math.floor(Math.random() * 90)); drawBars(SORT.a); $('#sinfo').textContent = ALGOS[$('#algo').value].info; $('#sstat').textContent = ''; }
+async function sortStart(){
+  const my = ++SORT.token; const algo = ALGOS[$('#algo').value]; let steps = 0;
+  for (const hi of algo.gen(SORT.a)){
+    if (my !== SORT.token || !$('#bars')) return;
+    steps++; drawBars(SORT.a, hi); $('#sstat').textContent = 'Steps: ' + steps;
+    await sleep(Math.max(2, 210 - (+$('#sspeed').value) * 2));
+  }
+  if (my === SORT.token && $('#bars')){ const all = {}; SORT.a.forEach((_, i) => all[i] = 'd'); drawBars(SORT.a, all); $('#sstat').textContent = 'Sorted in ' + steps + ' steps.'; }
+}
+let STK = [], QUE = [];
+function drawSQ(){ $('#stack').innerHTML = STK.map(v => '<div class="box">' + esc(v) + '</div>').join('') || '<span style="color:var(--muted)">Stack is empty</span>'; $('#queue').innerHTML = QUE.map(v => '<div class="box">' + esc(v) + '</div>').join('') || '<span style="color:var(--muted)">Queue is empty</span>'; }
+let BS = null;
+function bsReset(){
+  const arr = $('#bsarr').value.split(',').map(s => parseFloat(s.trim())).filter(n => !isNaN(n)).sort((a, b) => a - b);
+  BS = {arr, t: parseFloat($('#bst').value), lo: 0, hi: arr.length - 1, mid: -1, steps: 0, msg: 'Press Next step to begin.', hit: -1};
+  bsDraw();
+}
+function bsDraw(){
+  $('#bscells').innerHTML = BS.arr.map((v, i) => '<div class="cell ' + (i >= BS.lo && i <= BS.hi ? 'in ' : '') + (i === BS.mid ? 'mid ' : '') + (i === BS.hit ? 'hit' : '') + '">' + v + '</div>').join('');
+  $('#bsmsg').textContent = BS.msg;
+}
+function bsStep(){
+  if (BS.hit >= 0 || BS.lo > BS.hi){ return; }
+  BS.mid = (BS.lo + BS.hi) >> 1; BS.steps++;
+  const v = BS.arr[BS.mid];
+  if (v === BS.t){ BS.hit = BS.mid; BS.msg = 'Found ' + BS.t + ' at index ' + BS.mid + ' after ' + BS.steps + ' steps.'; }
+  else if (v < BS.t){ BS.msg = 'Step ' + BS.steps + ': ' + v + ' is smaller than ' + BS.t + ', so search the right half.'; BS.lo = BS.mid + 1; }
+  else { BS.msg = 'Step ' + BS.steps + ': ' + v + ' is larger than ' + BS.t + ', so search the left half.'; BS.hi = BS.mid - 1; }
+  if (BS.hit < 0 && BS.lo > BS.hi) BS.msg += ' Nothing left to search: ' + BS.t + ' is not in the list.';
+  bsDraw();
+}
+function viewLabs(){
+  app.innerHTML = '<h1>Visual labs</h1><p>Watch the algorithms from Data Structures and Algorithms work step by step.</p><div class="labs">' +
+    '<section class="panel"><h2>Sorting visualizer</h2><div class="ctrl"><label>Algorithm <select id="algo">' + Object.keys(ALGOS).map(k => '<option value="' + k + '">' + ALGOS[k].name + '</option>').join('') + '</select></label><label>Items <input id="sn" type="range" min="8" max="70" value="30"></label><label>Speed <input id="sspeed" type="range" min="1" max="100" value="70"></label></div>' +
+    '<div class="actions"><button class="btn primary" data-act="sstart">Start sorting</button><button class="btn" data-act="sstop">Stop</button><button class="btn" data-act="sshuffle">Shuffle</button></div>' +
+    '<div class="bars" id="bars" role="img" aria-label="Bars being sorted"></div><p id="sinfo" style="margin-top:.6rem"></p><p id="sstat"><b></b></p></section>' +
+    '<section class="panel"><h2>Stack and queue</h2><p>A stack removes the newest item first (LIFO). A queue removes the oldest item first (FIFO).</p><div class="ctrl"><label>Value <input id="sqv" type="text" value="7" size="6"></label><button class="btn" data-act="push">Push to stack</button><button class="btn" data-act="pop">Pop from stack</button><button class="btn" data-act="enq">Enqueue</button><button class="btn" data-act="deq">Dequeue</button></div><div class="sq"><div><h3>Stack (top is highest)</h3><div class="stack" id="stack"></div></div><div><h3>Queue (front is left)</h3><div class="queue" id="queue"></div></div></div></section>' +
+    '<section class="panel"><h2>Binary search</h2><p>Enter numbers and a target. Each step halves the part of the list that is still possible.</p><div class="ctrl"><label>Numbers <input id="bsarr" type="text" value="3, 8, 14, 21, 27, 35, 42, 56, 63, 78" size="34"></label><label>Target <input id="bst" type="number" value="35" style="width:90px"></label><button class="btn" data-act="bsreset">Reset</button><button class="btn primary" data-act="bsstep">Next step</button></div><div class="cells" id="bscells"></div><p id="bsmsg"></p></section></div>';
+  sortReset(); drawSQ(); bsReset();
+  $('#algo').addEventListener('change', sortReset); $('#sn').addEventListener('input', sortReset);
+}
+
+/* ---------- interview prep ---------- */
+const CARDS = [
+ ["Data Structures","What is the difference between an array and a linked list?","Arrays give O(1) access by index but inserting in the middle is slow. Linked lists insert at a known node in O(1) but need O(n) to reach an element."],
+ ["Data Structures","Stack versus queue?","A stack is last in, first out (undo history, function calls). A queue is first in, first out (print jobs, task scheduling)."],
+ ["Data Structures","How does a hash table handle collisions?","Chaining stores colliding keys in a list at the same slot. Open addressing probes for the next free slot. A good hash function and load factor keep lookups near O(1)."],
+ ["Algorithms","When does binary search work, and how fast is it?","It needs sorted data and runs in O(log n) because each step halves the search range."],
+ ["Algorithms","What is dynamic programming?","It solves a problem by breaking it into overlapping sub-problems and storing each answer so it is computed only once, for example Fibonacci or the knapsack problem."],
+ ["Operating Systems","Process versus thread?","A process has its own memory space. Threads inside a process share its memory, so they are lighter but need synchronization."],
+ ["Operating Systems","What is a deadlock and what causes it?","Processes wait on each other forever. It needs mutual exclusion, hold and wait, no preemption and circular wait all at once."],
+ ["Operating Systems","What is virtual memory?","It lets programs use more memory than physically exists by moving pages between RAM and disk, and gives each process its own address space."],
+ ["Databases","What is normalization?","Organizing tables to reduce duplication and update problems, using rules such as 1NF, 2NF and 3NF."],
+ ["Databases","What does ACID mean?","Atomicity, Consistency, Isolation, Durability. These properties keep transactions reliable."],
+ ["Databases","INNER JOIN versus LEFT JOIN?","INNER JOIN returns only rows that match in both tables. LEFT JOIN returns every row from the left table, with NULLs where there is no match."],
+ ["Networks","TCP versus UDP?","TCP is reliable and ordered with a connection (web, email). UDP is faster with no guarantees (video calls, gaming)."],
+ ["Networks","What happens when you type a URL and press Enter?","The browser asks DNS for the IP address, opens a TCP connection (with TLS for HTTPS), sends an HTTP request, receives the response and renders the page."],
+ ["OOP","What are the four pillars of OOP?","Encapsulation, abstraction, inheritance and polymorphism."],
+ ["OOP","Overloading versus overriding?","Overloading: same method name with different parameters, decided at compile time. Overriding: a subclass replaces a parent method, decided at runtime."],
+ ["AI and ML","What is overfitting and how do you reduce it?","The model memorizes training data and does badly on new data. Use more data, simpler models, regularization, cross-validation or early stopping."],
+ ["AI and ML","Supervised versus unsupervised learning?","Supervised learning uses labeled examples (predict price, classify spam). Unsupervised learning finds structure in unlabeled data (clustering)."],
+ ["Web","GET versus POST?","GET requests data and should not change anything. POST sends data to create or change something."],
+ ["Software Engineering","Agile versus Waterfall?","Waterfall follows fixed phases one after another. Agile delivers in short iterations and adapts to feedback."]
+];
+let IV = {subject: 'All', list: [], i: 0, show: false};
+function ivBuild(){ IV.list = CARDS.filter(c => IV.subject === 'All' || c[0] === IV.subject); IV.i = 0; IV.show = false; }
+function viewInterview(){
+  const subs = ['All'].concat([...new Set(CARDS.map(c => c[0]))]);
+  ivBuild();
+  app.innerHTML = '<h1>Interview prep</h1><p>Click a card to reveal the answer. Say the answer out loud first, then check yourself.</p><div class="chips" id="ivchips">' + subs.map(s => '<button data-act="subject" data-s="' + esc(s) + '" aria-pressed="' + (s === IV.subject) + '">' + esc(s) + '</button>').join('') + '</div><div id="ivcard"></div><div class="actions"><button class="btn" data-act="ivprev">Previous</button><button class="btn" data-act="ivnext">Next</button><button class="btn" data-act="ivshuffle">Shuffle</button></div>';
+  ivDraw();
+}
+function ivDraw(){
+  const el = $('#ivcard'); if (!el) return;
+  const c = IV.list[IV.i];
+  el.innerHTML = '<button class="flash ' + (IV.show ? 'ans' : '') + '" data-act="flip" aria-live="polite"><small>' + esc(c[0]) + ' (card ' + (IV.i + 1) + ' of ' + IV.list.length + ')</small><h3>' + esc(IV.show ? c[2] : c[1]) + '</h3><small>' + (IV.show ? 'Click to see the question again' : 'Click to reveal the answer') + '</small></button>';
+}
+
+/* ---------- FYP ideas ---------- */
+const IDEAS = [
+ {g:['AI'], t:'Study Assistant with RAG', s:'Python, LLM API, vector database', d:'A chatbot that answers questions from a university\'s own lecture notes and past papers, with the source page shown for each answer.'},
+ {g:['AI','Mobile'], t:'Plant Disease Detector', s:'CNN, TensorFlow Lite, Flutter', d:'Farmers photograph a leaf and the app names the disease and suggests treatment, working offline.'},
+ {g:['AI','Data'], t:'Urdu Fake News Detector', s:'NLP, transformers, Flask', d:'Classifies Urdu news headlines as reliable or suspicious and explains which words influenced the result.'},
+ {g:['AI','Data'], t:'Student Dropout Risk Predictor', s:'scikit-learn, pandas, dashboard', d:'Uses attendance and marks to flag students who need early help, with a private advisor dashboard.'},
+ {g:['Web'], t:'Online Exam Portal', s:'React, Node.js, PostgreSQL', d:'Timed quizzes with randomized questions, auto marking and teacher analytics.'},
+ {g:['Web','Data'], t:'Campus Jobs and Internships Board', s:'Next.js, database, email alerts', d:'Companies post openings and students apply with a profile built from their completed projects.'},
+ {g:['Web','AI'], t:'Smart Timetable Generator', s:'Constraint solving, web UI', d:'Builds clash-free timetables for teachers, rooms and sections using constraint satisfaction.'},
+ {g:['Mobile'], t:'Offline-First Attendance App', s:'Flutter, SQLite, sync service', d:'Teachers mark attendance without internet and the data syncs when a connection returns.'},
+ {g:['Mobile','Web'], t:'Local Farmer Marketplace', s:'Flutter, Firebase, maps', d:'Farmers list produce and nearby buyers order directly, with live price comparison.'},
+ {g:['Security','Web'], t:'Phishing Link Detector', s:'Browser extension, ML', d:'A browser extension that scores links and warns before you open a phishing site.'},
+ {g:['Security'], t:'Local Password Health Checker', s:'JavaScript, cryptography', d:'Checks password strength and reuse entirely on the device so nothing is uploaded.'},
+ {g:['IoT','Mobile'], t:'Water Tank Monitor', s:'ESP32, ultrasonic sensor, mobile app', d:'Measures tank level and alerts the phone when water is low or the pump should start.'},
+ {g:['IoT','AI'], t:'Smart Classroom Attendance', s:'Camera, face recognition, dashboard', d:'Marks attendance from a classroom camera with privacy controls and teacher approval.'},
+ {g:['Data'], t:'Pakistan Food Price Dashboard', s:'Python, open data, charts', d:'Tracks and forecasts the prices of daily food items by city.'},
+ {g:['Data','Security'], t:'Traffic Accident Hotspot Map', s:'GIS, clustering, web map', d:'Maps accident clusters from public records to suggest where safety work is needed.'},
+ {g:['AI','Web'], t:'CV and Interview Coach', s:'LLM API, speech to text', d:'Reviews a student CV and runs mock interviews with feedback on answers and clarity.'}
+];
+let SEL = new Set();
+function viewFyp(){
+  const tags = ['AI','Web','Mobile','Security','IoT','Data'];
+  app.innerHTML = '<h1>Final Year Project ideas</h1><p>Pick the areas you enjoy, then generate ideas. Run it again for a fresh set.</p><div class="chips">' + tags.map(t => '<button data-act="tag" data-t="' + t + '" aria-pressed="' + SEL.has(t) + '">' + t + '</button>').join('') + '</div><button class="btn primary" data-act="gen">Generate ideas</button><div class="ideas" id="ideas"></div>';
+  genIdeas();
+}
+function genIdeas(){
+  let pool = IDEAS.filter(i => !SEL.size || i.g.some(g => SEL.has(g)));
+  pool = pool.slice().sort(() => Math.random() - .5).slice(0, 3);
+  $('#ideas').innerHTML = pool.length ? pool.map(i => '<article class="idea"><h3>' + esc(i.t) + '</h3><p>' + esc(i.d) + '</p><div class="stack-line">' + esc(i.s) + '</div></article>').join('') : '<div class="panel empty">Pick at least one area.</div>';
+}
+
+/* ---------- code runner ---------- */
+function fmt(v){ if (typeof v === 'string') return v; try { return typeof v === 'object' ? JSON.stringify(v) : String(v); } catch (e) { return String(v); } }
+function runCode(){
+  const logs = [];
+  const con = {log: (...a) => logs.push(a.map(fmt).join(' ')), error: (...a) => logs.push('Error: ' + a.map(fmt).join(' ')), warn: (...a) => logs.push('Warning: ' + a.map(fmt).join(' '))};
+  try { new Function('console', $('#code').value)(con); } catch (e) { logs.push('Error: ' + e.message); }
+  $('#out').textContent = logs.join('\n') || 'The code ran with no output. Use console.log to print results.';
+}
+
+/* ---------- routing & events ---------- */
+function route(){
+  const parts = location.hash.replace(/^#\/?/, '').split('/');
+  const page = parts[0] || '';
+  SORT.token++;
+  document.querySelectorAll('nav a[data-nav]').forEach(a => { if (a.dataset.nav === (page === 'course' ? '' : page)) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+  if (page === 'course') viewCourse(parts[1], parts[2]);
+  else if (page === 'labs') viewLabs();
+  else if (page === 'interview') viewInterview();
+  else if (page === 'fyp') viewFyp();
+  else viewRoadmap();
+  app.classList.remove('view-in'); void app.offsetWidth; app.classList.add('view-in');
+}
+window.addEventListener('hashchange', () => { route(); window.scrollTo(0, 0); });
+$('#search').addEventListener('input', () => { if (location.hash && location.hash !== '#/' && location.hash !== '#'){ location.hash = '#/'; } else viewRoadmap(); });
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-act]'); if (!b) return;
+  const act = b.dataset.act, parts = location.hash.replace(/^#\/?/, '').split('/'), c = COURSES.find(x => x.c === parts[1]);
+  if (act === 'topic' || act === 'step'){
+    const store = act === 'topic' ? P.t : P.s, k = c.c + ':' + b.dataset.k;
+    store[k] = store[k] ? 0 : 1; save();
+    const on = !!store[k], li = b.closest('li');
+    li.classList.toggle('done', on); b.setAttribute('aria-pressed', on); b.innerHTML = on ? '&#10003;' : '';
+    b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop');
+    const chip = $('#pchip'); if (chip) chip.textContent = pctOf(prog(c)) + '% done';
+  }
+  else if (act === 'run') runCode();
+  else if (act === 'reset') { $('#code').value = starter(c); $('#out').textContent = 'Output appears here.'; }
+  else if (act === 'clear') $('#out').textContent = 'Output appears here.';
+  else if (act === 'ans'){ (QS[c.c] = QS[c.c] || {})[+b.dataset.q] = +b.dataset.o; viewCourse(c.c, 'quiz'); }
+  else if (act === 'retry'){ QS[c.c] = {}; viewCourse(c.c, 'quiz'); }
+  else if (act === 'sstart') sortStart();
+  else if (act === 'sstop') SORT.token++;
+  else if (act === 'sshuffle') sortReset();
+  else if (act === 'push'){ const v = $('#sqv').value.trim(); if (v){ STK.push(v); drawSQ(); } }
+  else if (act === 'pop'){ STK.pop(); drawSQ(); }
+  else if (act === 'enq'){ const v = $('#sqv').value.trim(); if (v){ QUE.push(v); drawSQ(); } }
+  else if (act === 'deq'){ QUE.shift(); drawSQ(); }
+  else if (act === 'bsreset') bsReset();
+  else if (act === 'bsstep') { if (!BS) bsReset(); bsStep(); }
+  else if (act === 'subject'){ IV.subject = b.dataset.s; viewInterview(); }
+  else if (act === 'flip'){ IV.show = !IV.show; ivDraw(); }
+  else if (act === 'ivnext'){ IV.i = (IV.i + 1) % IV.list.length; IV.show = false; ivDraw(); }
+  else if (act === 'ivprev'){ IV.i = (IV.i - 1 + IV.list.length) % IV.list.length; IV.show = false; ivDraw(); }
+  else if (act === 'ivshuffle'){ IV.list.sort(() => Math.random() - .5); IV.i = 0; IV.show = false; ivDraw(); }
+  else if (act === 'tag'){ const t = b.dataset.t; SEL.has(t) ? SEL.delete(t) : SEL.add(t); b.setAttribute('aria-pressed', SEL.has(t)); }
+  else if (act === 'gen') genIdeas();
+});
+document.addEventListener('keydown', e => {
+  if (e.target.id === 'code' && e.key === 'Tab'){ e.preventDefault(); const t = e.target, s = t.selectionStart; t.value = t.value.slice(0, s) + '  ' + t.value.slice(t.selectionEnd); t.selectionStart = t.selectionEnd = s + 2; }
+  if (e.target.id === 'code' && (e.ctrlKey || e.metaKey) && e.key === 'Enter'){ runCode(); }
+});
+
+/* theme */
+(function(){
+  let saved = null; try { saved = localStorage.getItem('bscs-theme'); } catch (e) {}
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+  $('#theme').addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('bscs-theme', next); } catch (e) {}
+  });
+})();
+route();
+</script>
+</body>
+</html>
