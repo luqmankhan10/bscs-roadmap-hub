@@ -7,6 +7,8 @@ Made by **Luqman Khan**, student of **GCMS Commerce College Talash**.
 
 **Live demo:** https://luqmankhan10.github.io/bscs-roadmap-hub/
 
+![BSCS Roadmap Hub screenshot](screenshot.png)
+
 ## Features
 
 - **Degree roadmap:** Semester 1 to 8 with all courses, search, and a progress bar for every course and semester
